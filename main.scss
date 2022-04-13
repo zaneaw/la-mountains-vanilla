@@ -1,0 +1,278 @@
+/* ================== Globals ======================*/
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+html,
+body {
+    min-height: 100%;
+    background: #fff;
+    color: #000;
+}
+
+body,
+ul,
+ol,
+dl {
+    margin: 0;
+}
+
+p {
+    font-size: 0.95rem;
+}
+
+/* ================== Repeatables ======================*/
+.bg {
+    z-index: -1;
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 840px;
+    padding: 5px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header-font {
+    font-family: "Roboto", sans-serif;
+}
+
+.hover-prop:hover {
+    transform: scale(1.1);
+}
+
+/* ================== Nav ======================*/
+.nav {
+    position: fixed;
+    display: flex;
+}
+
+.nav--list {
+    display: flex;
+    align-items: center;
+    padding-inline-start: 0;
+    margin-left: auto;
+}
+
+.nav--list-item {
+    list-style-type: none;
+    font-size: 0.9rem;
+    padding-inline: 5px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-style: oblique;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    transition: all 0.2s;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.nav--list-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ================== Hero ======================*/
+.hero {
+    overflow: hidden;
+}
+
+.hero--bg-image {
+    margin: 0 auto;
+}
+
+@media (max-width: 620px) {
+    .hero--bg-image {
+        min-width: 750px;
+        margin-left: -110px;
+    }
+}
+
+@media (max-width: 475px) {
+    .hero--bg-image {
+        margin-left: -150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero--bg-image {
+        margin-left: -180px;
+    }
+}
+
+/* ================== History ======================*/
+.history {
+    background-image: url("./images/history-bg.png");
+    background-position: center;
+    background-size: cover;
+    margin-top: -7px;
+    padding-top: 80px;
+    min-height: 1000px;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--text {
+        margin: 0 75px;
+    }
+}
+
+@media (max-width: 30em) {
+    .history--text {
+        margin: 0;
+    }
+}
+
+.carousel {
+    width: 250px;
+    height: auto;
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+
+/* ================== Climb ======================*/
+.climb--header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    padding-inline: 50px;
+    &-bg {
+        background-color: #61759e;
+        padding-block: 25px;
+    }
+}
+
+.climb--tab {
+    &-bg {
+        background-color: #404f6c;
+    }
+    &-container {
+        display: flex;
+        text-transform: uppercase;
+        color: #b0b4be;
+        position: relative;
+        overflow: visible;
+        height: 40px;
+    }
+    &-button {
+        text-transform: uppercase;
+        letter-spacing: -0.09rem;
+        font-weight: 500;
+        color: #b0b4be;
+        background-color: transparent;
+        border: none;
+        padding: 15px 15px 20px 15px;
+        position: absolute;
+        bottom: -20px;
+        transition: all 0.2s;
+        &:hover {
+            text-decoration: underline;
+        }
+        &.is-active,
+        &:focus {
+            background-color: #b0b4be;
+            color: #404f6c;
+        }
+    }
+    &-content {
+        display: none;
+        &.is-active {
+            display: flex;
+        }
+    }
+    &-mountain-2 {
+        left: 180px;
+    }
+}
+
+.climb--table {
+    padding-inline: 40px;
+
+    & table {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-collapse: collapse;
+    }
+    & thead {
+        color: #404f6c;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        letter-spacing: -0.05rem;
+    }
+    & th,
+    & td {
+        text-align: left;
+    }
+    & th {
+        padding-left: 40px;
+        padding-top: 10px;
+    }
+    & .td-left {
+        padding-inline: 40px 25px;
+    }
+    & .td-right {
+        padding-inline: 25px 40px;
+    }
+    & .td-bottom {
+        padding-bottom: 20px;
+    }
+}
+
+.tab-1 {
+    background-image: url("./images/tab-img-1.png");
+    background-position: center;
+    background-size: cover;
+    margin-top: -7px;
+    padding-top: 120px;
+    min-height: 550px;
+    max-width: 100%;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+}
+
+.tab-2 {
+    background-image: url("./images/tab-img-2.png");
+    background-position: center;
+    background-size: cover;
+    margin-top: -7px;
+    padding-top: 120px;
+    min-height: 550px;
+    max-width: 100%;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+}
+
+/* ================== Footer ======================*/
+.footer {
+    background-color: #182443;
+    & .footer--div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #253662;
+        font-style: oblique;
+        text-transform: uppercase;
+        & span {
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+@media (max-width: 30em) {
+    .climb--header {
+        flex-direction: column;
+    }
+}
