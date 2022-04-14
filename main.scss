@@ -2,6 +2,7 @@
 * {
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
+    transition: all 0.2s;
 }
 
 html,
@@ -9,6 +10,13 @@ body {
     min-height: 100%;
     background: #fff;
     color: #000;
+}
+
+a {
+    color: transparent;
+    &:hover {
+        color: transparent;
+    }
 }
 
 body,
@@ -49,45 +57,70 @@ p {
 }
 
 /* ================== Nav ======================*/
-.nav {
+
+.nav--container {
+    width: 100%;
+    height: 70px;
     position: fixed;
-    display: flex;
-}
-
-.nav--list {
-    display: flex;
-    align-items: center;
-    padding-inline-start: 0;
-    margin-left: auto;
-}
-
-.nav--list-item {
-    list-style-type: none;
-    font-size: 0.9rem;
-    padding-inline: 5px;
-    text-transform: uppercase;
-    text-decoration: underline;
-    font-style: oblique;
-    font-weight: 500;
-    letter-spacing: 0.08rem;
-    transition: all 0.2s;
-    &:hover {
-        text-decoration: none;
+    left: 0;
+    z-index: 10;
+    /* change navbar background on scroll */
+    &.scrolling-active {
+        background-color: #61759e;
+        box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
     }
 }
 
-.nav--list-link {
-    color: #fff;
-    text-decoration: none;
+/* change navbar text color on scroll */
+.nav--container.scrolling-active .nav .nav--list {
+    &-link {
+        color: #404f6c;
+    }
+}
+
+.nav {
+    display: flex;
+    &--image-text {
+        padding-left: 5px;
+    }
+    &--list {
+        display: flex;
+        align-items: center;
+        padding-inline-start: 0;
+        margin-left: auto;
+        gap: 20px;
+    }
+    &--list-item {
+        list-style-type: none;
+        font-size: 0.9rem;
+        padding-inline: 5px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-style: oblique;
+        font-weight: 500;
+        letter-spacing: 0.08rem;
+        transition: all 0.2s;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &--list-link {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            color: #fff;
+        }
+    }
 }
 
 /* ================== Hero ======================*/
 .hero {
     overflow: hidden;
-}
-
-.hero--bg-image {
-    margin: 0 auto;
+    z-index: 1;
+    &--bg-image {
+        margin: 0 auto;
+        z-index: 1;
+    }
 }
 
 @media (max-width: 620px) {
@@ -192,7 +225,7 @@ p {
         }
     }
     &-mountain-2 {
-        left: 180px;
+        left: 200px;
     }
 }
 
@@ -200,7 +233,7 @@ p {
     padding-inline: 40px;
 
     & table {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.8);
         border-collapse: collapse;
     }
     & thead {
@@ -230,19 +263,14 @@ p {
 
 .tab-1 {
     background-image: url("./images/tab-img-1.png");
-    background-position: center;
-    background-size: cover;
-    margin-top: -7px;
-    padding-top: 120px;
-    min-height: 550px;
-    max-width: 100%;
-    overflow: hidden;
-    display: none;
-    flex-direction: column;
 }
 
 .tab-2 {
     background-image: url("./images/tab-img-2.png");
+}
+
+.tab-1,
+.tab-2 {
     background-position: center;
     background-size: cover;
     margin-top: -7px;
@@ -271,8 +299,65 @@ p {
     }
 }
 
+/* ================== Media Queries ======================*/
+@media (max-width: 35em) {
+    .history--text {
+        margin: 0;
+    }
+}
+
 @media (max-width: 30em) {
+    .nav {
+        &--image-text {
+            display: none;
+        }
+        &--list {
+            gap: 5px;
+        }
+    }
+
+    .history--text {
+        font-size: 0.85rem;
+    }
     .climb--header {
         flex-direction: column;
+    }
+    .climb--tab {
+        &-button {
+            bottom: -15px;
+        }
+        &-button h4 {
+            font-size: 1.1rem;
+        }
+        &-mountain-2 {
+            left: 150px;
+        }
+    }
+
+    .climb--table {
+        & th,
+        & td {
+            text-align: left;
+        }
+        & td {
+            font-size: 0.8rem;
+        }
+        & th {
+            padding-left: 10px;
+        }
+        & .td-left {
+            padding-inline: 10px 5px;
+        }
+        & .td-right {
+            padding-inline: 5px 10px;
+        }
+        & .td-bottom {
+            padding-bottom: 20px;
+        }
+    }
+
+    .footer--div {
+        flex-direction: column;
+        gap: 20px;
     }
 }
