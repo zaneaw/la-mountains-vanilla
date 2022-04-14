@@ -64,6 +64,7 @@ p {
     position: fixed;
     left: 0;
     z-index: 10;
+    transition: all 0.5s;
     /* change navbar background on scroll */
     &.scrolling-active {
         background-color: #61759e;
@@ -75,6 +76,7 @@ p {
 .nav--container.scrolling-active .nav .nav--list {
     &-link {
         color: #404f6c;
+        transition: all 0.5s;
     }
 }
 

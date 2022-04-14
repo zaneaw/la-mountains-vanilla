@@ -67,6 +67,8 @@ p {
   position: fixed;
   left: 0;
   z-index: 10;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   /* change navbar background on scroll */
 }
 
@@ -79,6 +81,8 @@ p {
 /* change navbar text color on scroll */
 .nav--container.scrolling-active .nav .nav--list-link {
   color: #404f6c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .nav {
