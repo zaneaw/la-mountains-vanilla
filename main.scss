@@ -1,8 +1,14 @@
 /* ================== Globals ======================*/
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
     transition: all 0.2s;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 html,
@@ -12,11 +18,9 @@ body {
     color: #000;
 }
 
-a {
+a,
+a:hover {
     color: transparent;
-    &:hover {
-        color: transparent;
-    }
 }
 
 body,
@@ -58,7 +62,7 @@ p {
 
 /* ================== Nav ======================*/
 
-.nav--container {
+.nav__container {
     width: 100%;
     height: 70px;
     position: fixed;
@@ -73,7 +77,7 @@ p {
 }
 
 /* change navbar text color on scroll */
-.nav--container.scrolling-active .nav .nav--list {
+.nav__container.scrolling-active .nav .nav__list {
     &-link {
         color: #404f6c;
         transition: all 0.5s;
@@ -82,17 +86,17 @@ p {
 
 .nav {
     display: flex;
-    &--image-text {
+    &__image-text {
         padding-left: 5px;
     }
-    &--list {
+    &__list {
         display: flex;
         align-items: center;
         padding-inline-start: 0;
         margin-left: auto;
         gap: 20px;
     }
-    &--list-item {
+    &__list-item {
         list-style-type: none;
         font-size: 0.9rem;
         padding-inline: 5px;
@@ -106,7 +110,7 @@ p {
             text-decoration: none;
         }
     }
-    &--list-link {
+    &__list-link {
         color: #fff;
         text-decoration: none;
         &:hover {
@@ -119,27 +123,27 @@ p {
 .hero {
     overflow: hidden;
     z-index: 1;
-    &--bg-image {
+    &__bg-image {
         margin: 0 auto;
         z-index: 1;
     }
 }
 
 @media (max-width: 620px) {
-    .hero--bg-image {
+    .hero__bg-image {
         min-width: 750px;
         margin-left: -110px;
     }
 }
 
 @media (max-width: 475px) {
-    .hero--bg-image {
+    .hero__bg-image {
         margin-left: -150px;
     }
 }
 
 @media (max-width: 400px) {
-    .hero--bg-image {
+    .hero__bg-image {
         margin-left: -180px;
     }
 }
@@ -157,26 +161,65 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    &--text {
+    &__text {
         margin: 0 75px;
     }
 }
 
-@media (max-width: 30em) {
-    .history--text {
-        margin: 0;
-    }
-}
+/* ================== Carousel ======================*/
 
 .carousel {
     width: 250px;
-    height: auto;
+    height: 169px;
     margin-top: auto;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    &__button {
+        position: relative;
+        text-align: center;
+        text-justify: auto;
+        background: none;
+        border: none;
+        font-size: 3rem;
+        padding-bottom: 5px;
+        padding-inline: 10px;
+        z-index: 2;
+        transform: translateY(60%);
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        &.next {
+            float: right;
+        }
+        &:hover,
+        &:focus {
+            color: #fff;
+        }
+    }
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    transition-delay: 0.2s;
+    list-style-type: none;
+    &[data-active] {
+        opacity: 1;
+        transition-delay: 0s;
+        z-index: 1;
+    }
+    & img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 
 /* ================== Climb ======================*/
-.climb--header {
+.climb__header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -188,30 +231,34 @@ p {
     }
 }
 
-.climb--tab {
+.climb__tab {
     &-bg {
         background-color: #404f6c;
     }
     &-container {
-        display: flex;
-        text-transform: uppercase;
-        color: #b0b4be;
         position: relative;
-        overflow: visible;
         height: 40px;
     }
     &-button {
         text-transform: uppercase;
         letter-spacing: -0.09rem;
+        font-size: 1.3rem;
         font-weight: 500;
         color: #b0b4be;
         background-color: transparent;
+        padding: 10px 15px 20px 15px;
+        position: relative;
+        bottom: 12px;
         border: none;
-        padding: 15px 15px 20px 15px;
-        position: absolute;
-        bottom: -20px;
         transition: all 0.2s;
+        cursor: pointer;
+        & h4 {
+            margin: 0;
+        }
         &:hover {
+            text-decoration: underline;
+        }
+        &.is-active h4 {
             text-decoration: underline;
         }
         &.is-active,
@@ -227,11 +274,11 @@ p {
         }
     }
     &-mountain-2 {
-        left: 200px;
+        left: 20px;
     }
 }
 
-.climb--table {
+.climb__table {
     padding-inline: 40px;
 
     & table {
@@ -287,7 +334,7 @@ p {
 /* ================== Footer ======================*/
 .footer {
     background-color: #182443;
-    & .footer--div {
+    & .footer__div {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -303,40 +350,40 @@ p {
 
 /* ================== Media Queries ======================*/
 @media (max-width: 35em) {
-    .history--text {
+    .history__text {
         margin: 0;
     }
 }
 
 @media (max-width: 30em) {
     .nav {
-        &--image-text {
+        &__image-text {
             display: none;
         }
-        &--list {
+        &__list {
             gap: 5px;
         }
     }
 
-    .history--text {
+    .history__text {
         font-size: 0.85rem;
     }
-    .climb--header {
-        flex-direction: column;
-    }
-    .climb--tab {
-        &-button {
-            bottom: -15px;
+    .climb {
+        &__header {
+            flex-direction: column;
+            gap: 5px;
         }
-        &-button h4 {
-            font-size: 1.1rem;
-        }
-        &-mountain-2 {
-            left: 150px;
+        &__tab {
+            &-button {
+                bottom: 9px;
+            }
+            &-button h4 {
+                font-size: 0.9rem;
+            }
         }
     }
 
-    .climb--table {
+    .climb__table {
         & th,
         & td {
             text-align: left;
@@ -358,7 +405,7 @@ p {
         }
     }
 
-    .footer--div {
+    .footer__div {
         flex-direction: column;
         gap: 20px;
     }
