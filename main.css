@@ -44,14 +44,20 @@ p {
   height: auto;
 }
 
-.container {
-  max-width: 840px;
+.container-lg {
+  max-width: 960px;
   padding: 5px 20px;
   margin-left: auto;
   margin-right: auto;
   top: 0;
   left: 0;
   right: 0;
+}
+
+@media (max-width: 30em) {
+  .container-lg {
+    padding: 5px 10px;
+  }
 }
 
 .header-font {
@@ -81,7 +87,22 @@ p {
           box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
 }
 
-/* change navbar text color on scroll */
+.nav__container.scrolling-active .nav {
+  /* display nav logo with text on scroll */
+  /* change navbar text color on scroll */
+}
+
+.nav__container.scrolling-active .nav .nav__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.nav__container.scrolling-active .nav .nav__logo .nav__image-text {
+  display: block;
+}
+
 .nav__container.scrolling-active .nav .nav__list-link {
   color: #404f6c;
   -webkit-transition: all 0.5s;
@@ -92,10 +113,13 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .nav__image-text {
-  padding-left: 5px;
+  display: none;
 }
 
 .nav__list {
@@ -109,6 +133,7 @@ p {
           padding-inline-start: 0;
   margin-left: auto;
   gap: 20px;
+  margin-bottom: 0;
 }
 
 .nav__list-item {
@@ -202,11 +227,11 @@ p {
   position: relative;
 }
 
-.carousel-indicators [data-bs-target] {
+.carousel .carousel-indicators [data-bs-target] {
   border: 1px rgba(0, 0, 0, 0.5) solid;
   border-radius: 50%;
+  width: 9px;
   height: 8px;
-  width: 10px;
 }
 
 /* ================== Climb ======================*/
@@ -378,11 +403,8 @@ p {
 }
 
 @media (max-width: 30em) {
-  .nav__image-text {
+  .nav__container.scrolling-active .nav .nav__logo .nav__image-text {
     display: none;
-  }
-  .nav__list {
-    gap: 5px;
   }
   .history__text {
     font-size: 0.85rem;
