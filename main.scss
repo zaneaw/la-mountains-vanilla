@@ -215,13 +215,11 @@ p {
         border: none;
         transition: all 0.2s;
         cursor: pointer;
-        & h4 {
-            margin: 0;
-        }
+        margin: 0;
         &:hover {
             text-decoration: underline;
         }
-        &.is-active h4 {
+        &.is-active {
             text-decoration: underline;
         }
         &.is-active,
@@ -340,7 +338,7 @@ p {
             &-button {
                 bottom: 9px;
             }
-            &-button h4 {
+            &-button {
                 font-size: 0.9rem;
             }
         }

@@ -253,9 +253,6 @@ p {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;
-}
-
-.climb__tab-button h4 {
   margin: 0;
 }
 
@@ -263,7 +260,7 @@ p {
   text-decoration: underline;
 }
 
-.climb__tab-button.is-active h4 {
+.climb__tab-button.is-active {
   text-decoration: underline;
 }
 
@@ -400,7 +397,7 @@ p {
   .climb__tab-button {
     bottom: 9px;
   }
-  .climb__tab-button h4 {
+  .climb__tab-button {
     font-size: 0.9rem;
   }
   .climb__table th,
